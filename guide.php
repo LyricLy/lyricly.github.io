@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <title>3DS Guide</title>
+</head>
+<body>
 <h1>3DS Guide</h1>
 <p>This is a guide on hacking your Nintendo 3DS/2DS system and installing arm9loaderhax.</p>
 <p>Note that this guide can only be followed on versions from 9.0 to 11.3.</p>
@@ -51,4 +55,29 @@
 </ol>
 <p>If you have trouble with anything, ask on the <a href="https://discord.gg/C29hYvh">Nintendo Homebrew</a> Discord server.</p>
 <p>Type ".togglechannel elsewhere" in the #bot-cmds channel to unlock #elsewhere, where you can ask for help.</p>
-</html>  
+<?php
+
+//open up the log file
+$file = fopen(‘log.html’, ‘a’);
+
+//write the time of access
+
+$time = date(‘H:i dS F’);
+fwrite($file, ‘<b>Time:</b> $time<br/>’ );
+
+//write the users IP address
+fwrite( $file, ‘<b>Ip Address:</b> $REMOTE_ADDR<br/>’);
+
+//write out the page that sent them here
+fwrite($file, ‘<b>Referer:</b> $HTTP_REFFERER<br/>’);
+
+//write the users browser details
+
+fwrite( $file, ‘<b>Browser:</b> $HTTP_USER_AGENT<hr/>’);
+
+//and finial, close the log file
+fclose( $file );
+
+?>
+</body>
+</html>
