@@ -32,6 +32,6 @@
   border-radius: 4px;
   box-shadow: 0 1px 1px rgba(0,0,0,0.125);
   box-sizing: border-box;}
-  p:nth-of-type(4),p:nth-of-type(5),p:nth-of-type(6){display:none!important;}
+  p:nth-of-type(5),p:nth-of-type(6){display:none!important;}
   a{color:#52adc8!important;}
 }
