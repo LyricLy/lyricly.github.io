@@ -1,0 +1,58 @@
+*{
+  font-family: -apple-system,".SFNSText-Regular","San Francisco","Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
+  color: #D8DEE9;
+  line-height: 1.2;
+}
+
+hr {
+ display: block;
+ margin: 1em 0;
+ border: 0;
+ border-top: 1px solid #4C566A;
+}
+
+html{
+ background: #2E3440 !important;
+}
+
+a{
+ color: #7694b8; text-decoration:none
+}
+
+a:hover{
+ color:#7694b8; text-decoration:underline
+}
+
+p{
+ margin: 2em 0 !important;
+ padding: 1em;
+ font-family: -apple-system,".SFNSText-Regular","San Francisco","Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
+ font-size: .9em !important;
+ font-weight: bold;
+ text-indent: initial;
+ background-color: #485e7b; !important;
+ box-shadow: 0 1px 1px rgba(94,129,172,0.25) !important;
+ color: #D8DEE9; !important;
+ border-radius: 4px;
+ }
+
+li{
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+
+body{
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+code{
+  font-family: Monaco,Consolas,"Lucida Console",monospace !important;
+  padding: 0.15rem;
+  font-size: .9em;
+  background: #434C5E;
+  border: 1px solid #f2f3f3;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.125);
+}
+}
