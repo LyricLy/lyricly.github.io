@@ -1,0 +1,14 @@
+{
+  "name": "lyricly.fans",
+  "version": "1.0.0",
+  "description": "the one stop shop for all LyricLy fans",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @11ty/eleventy"
+  },
+  "keywords": [],
+  "type": "module",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  }
+}

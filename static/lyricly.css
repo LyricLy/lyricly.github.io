@@ -1,0 +1,346 @@
+/* reset crap based on ress */
+
+html {
+    box-sizing: border-box;
+    tab-size: 4;
+    color-scheme: light dark;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+::before, ::after {
+    text-decoration: inherit;
+    vertical-align: inherit;
+}
+
+*, ::before, ::after {
+    background-repeat: no-repeat;
+    box-sizing: inherit;
+}
+
+/* style */
+/* lots of this comes from sakura: https://github.com/oxalorg/sakura */
+
+:root {
+    --fg: light-dark(#333, #fbfbfb);
+    --weak-fg: rgb(from var(--fg) r g b / 50%);
+    --bg: light-dark(#fff, #111);
+    --off-bg: light-dark(#edeef0, #202020);
+    --text-green: #018933;
+    --green: #1fac2a;
+    --true-green: #70df44;
+    --text-pink: #e40079;
+    --pink: #f85f81;
+    --true-pink: #f7a8b8;
+    --text-yellow: color-mix(in oklch, var(--text-green), var(--text-pink));
+    --yellow: color-mix(in oklch, var(--green), var(--pink));
+    --true-yellow: #fff929;
+    --true-blue: #55cdfc;
+    --paragraph-margin: 1.5rem;
+}
+
+@font-face {
+    font-family: "Arimo";
+    src: url("Arimo-VariableFont_wght.ttf");
+}
+
+body {
+    max-width: 40rem;
+    margin: auto;
+    background: var(--bg);
+    color: var(--fg);
+    font-size: 1.125rem;
+    font-family: Arimo, Roboto, Arial, "Noto Sans", sans-serif;
+    padding: 10px;
+    line-height: 1.618;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    font-weight: 650;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+h1 {
+    font-size: 2.35em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.75em;
+}
+
+h4 {
+    font-size: 1.5em;
+}
+
+h5 {
+    font-size: 1.25em;
+}
+
+p {
+    margin-bottom: var(--paragraph-margin);
+}
+
+small, sub, sup {
+    font-size: 75%;
+}
+
+hr {
+    border-color: var(--green);
+}
+
+:link {
+    color: var(--text-green);
+}
+
+:visited {
+    color: var(--text-pink);
+}
+
+:any-link:hover {
+    color: var(--text-yellow);
+    text-decoration: none;
+}
+
+ul, ol {
+    padding-left: 1rem;
+    margin-bottom: var(--paragraph-margin);
+}
+
+li {
+    margin-bottom: 0.4rem;
+}
+
+blockquote {
+    padding: 0.8rem 0.08rem 0.08rem 1rem;
+    border-left: 5px solid var(--pink);
+    margin-bottom: var(--paragraph-margin);
+    background-color: var(--off-bg);
+
+    :last-child {
+        margin-bottom: 0;
+    }
+}
+
+img, video {
+    height: auto;
+    max-width: 100%;
+}
+
+pre {
+    background-color: var(--off-bg);
+    display: block;
+    padding: 1em;
+    overflow-x: auto;
+    margin-top: 0;
+    margin-bottom: var(--paragraph-margin);
+    font-size: 0.9em;
+    border-radius: 1em;
+}
+
+kbd {
+    color: var(--text-pink);
+    padding: 0 0.5em;
+    border-radius: calc(infinity*1px);
+    text-decoration: underline;
+}
+
+code, samp {
+    padding: 0 0.25em;
+    border-radius: 0.35em;
+}
+
+code, kbd, samp {
+    font-size: 0.9em;
+    background-color: var(--off-bg);
+    white-space: pre-wrap;
+}
+
+pre > code {
+    padding: 0;
+    background-color: transparent;
+    white-space: pre;
+    font-size: inherit;
+}
+
+table {
+    text-align: justify;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--paragraph-margin);
+}
+
+td, th {
+    padding: 0.5em;
+    border-bottom: 1px solid var(--fg);
+}
+
+@property --gradient-angle {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
+@property --gradient-width {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0.2;
+}
+
+@keyframes shimmer {
+    to {
+        --gradient-angle: 1;
+    }
+}
+
+button, input[type=button], input[type=reset], input[type=submit], input[type=file]::file-selector-button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    font-weight: 500;
+    background: var(--off-bg);
+    border: 2px solid var(--weak-fg);
+    transition: --gradient-width 0.075s cubic-bezier(0, 0.87, 0.85, 0.74);
+
+    &:disabled {
+        cursor: inherit;
+        color: var(--weak-fg);
+    }
+
+    &:hover:not(:disabled) {
+        --turn-length: 0.3;
+        --actual-angle: mod(var(--gradient-angle) - 0.075, 1);
+        background:
+            image(var(--bg)) padding-box,
+            conic-gradient(
+                from calc((
+                    clamp(0, (var(--actual-angle) - 0.5 + var(--turn-length)) / var(--turn-length), 1) / 2
+                  + clamp(0, (var(--actual-angle) - 1.0 + var(--turn-length)) / var(--turn-length), 1) / 2
+                ) * 1turn)
+                at calc(((
+                    clamp(var(--turn-length), 1 - abs(mod(var(--turn-length) + 2*var(--actual-angle), 2) - 1), 1 - var(--turn-length))
+                    - 0.5) / (1 - 2*var(--turn-length)) * 2 * (0.5 - var(--gradient-width)) + 0.5)
+                * 100%),
+                var(--true-green) calc(var(--gradient-width) / 2 * 1turn),
+                var(--green) min(var(--gradient-width) * 1turn, 0.5turn),
+                var(--green) max((1 - var(--gradient-width)) * 1turn, 0.5turn),
+                var(--true-green) calc((1 - var(--gradient-width) / 2) * 1turn)
+            ) border-box;
+        border-color: transparent;
+        animation: 0.3s ease shimmer;
+    }
+
+    &:active {
+        --gradient-width: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+        animation: none;
+    }
+}
+
+textarea, select, input {
+    font-size: 85%;
+    background: inherit;
+    border: 0.8px solid var(--weak-fg);
+    &:focus-visible {
+        outline: 2px solid var(--green);
+    }
+}
+
+textarea, select, input, button {
+    font-family: inherit;
+    padding: 0.5rem 0.85rem;
+    margin-bottom: 0;
+    box-shadow: none;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    accent-color: var(--green);
+    width: 1rem;
+    height: 1rem;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+}
+
+select[multiple] {
+    scrollbar-width: none;
+
+    option {
+        outline: 0;
+        border: none;
+    }
+
+    option:checked {
+        background: image(var(--green));
+    }
+}
+
+select[multiple], textarea {
+    border-radius: 1rem;
+}
+
+select, input, button {
+    border-radius: calc(infinity*1px);
+}
+
+input[type=checkbox]:focus {
+    border: 1px dotted #007559;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+
+    &:not(:has(> input[type=checkbox], > input[type=radio])) {
+        font-weight: 600;
+    }
+}
+
+details {
+    border: 1px solid var(--fg);
+    border-radius: 1em;
+    padding: 0.225rem 0.85rem;
+    margin-bottom: var(--paragraph-margin);
+
+    &:open summary {
+        width: 100%;
+        border-bottom: 1px solid var(--fg);
+        margin-left: -0.85rem;
+        margin-bottom: 0.25rem;
+        padding: 0 0.85rem 0.225rem 0.85rem;
+    }
+
+    :last-child {
+        margin-bottom: 0;
+    }
+}
+
+.lyricly-icon {
+    background: url("/me.webp");
+    background-size: 0.95em 0.95em;
+    width: 0.95em;
+    height: 0.95em;
+    vertical-align: text-bottom;
+    display: inline-block;
+    margin: 0 0.1em;
+}
