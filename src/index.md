@@ -48,7 +48,7 @@ I haven't used generative AI for code or assets, or been assisted by an LLM in a
 [![](/88x31/razetime.png)](https://razetime.github.io/)
 [![](/88x31/ultlang.png)](https://ultlang.github.io/)
 [![](/88x31/selaere.png)](https://selaere.github.io/)
-[pyrotelekinetic](https://pyrotelekinetic.github.io/)
+[pyrotelekinetic](https://clover.isons.org/)
 [xenia](https://coral.shoes/)
 [rachel](https://rachel.cafe/)
 
