@@ -256,8 +256,9 @@ button, input[type=button], input[type=reset], input[type=submit], input[type=fi
 }
 
 textarea, select, input {
+    height: 2.2rem;
     font-size: 85%;
-    background: inherit;
+    background: var(--bg);
     border: 0.8px solid var(--weak-fg);
     &:focus-visible {
         outline: 2px solid var(--green);
@@ -268,7 +269,6 @@ textarea, select, input, button {
     font-family: inherit;
     padding: 0.5rem 0.85rem;
     margin-bottom: 0;
-    box-shadow: none;
 }
 
 input[type="radio"], input[type="checkbox"] {
