@@ -98,7 +98,8 @@ small, sub, sup {
 }
 
 hr {
-    border-color: var(--green);
+    border-color: var(--fg);
+    margin-bottom: var(--paragraph-margin);
 }
 
 :link {
@@ -279,6 +280,7 @@ input[type="radio"], input[type="checkbox"] {
 textarea {
     width: 100%;
     resize: none;
+    margin-bottom: var(--paragraph-margin);
 }
 
 select[multiple] {
@@ -310,10 +312,7 @@ input[type=checkbox]:focus {
 label {
     display: block;
     margin-bottom: 0.5rem;
-
-    &:not(:has(> input[type=checkbox], > input[type=radio])) {
-        font-weight: 600;
-    }
+    font-weight: 450;
 }
 
 details {

@@ -41,6 +41,7 @@ I haven't used generative AI for code or assets, or been assisted by an LLM in a
 - I also made things for a party game called [Super Battle Golf](https://store.steampowered.com/app/4069520/Super_Battle_Golf/):
     - [BetterDistanceEstimation](https://github.com/LyricLy/BetterDistanceEstimation), a mod to make the in-game ball trajectory prediction more accurate [complete, Super Battle Golf mod]
     - [MoveAfterScoring](https://github.com/LyricLy/MoveAfterScoring), a mod which lets you move after scoring to impede other players [complete, Super Battle Golf mod]
+- [Custom Settings Editor](causalities), a tool to edit custom run setting presets for the survival game [Causalties: Unknown](https://store.steampowered.com/app/4576490/Casualties_Unknown/) [complete, web]
 
 ## Friends
 [![](https://lyricly.fans/88x31/lyricly.gif)](https://lyricly.fans)
