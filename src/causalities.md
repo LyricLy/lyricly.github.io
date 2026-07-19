@@ -247,8 +247,8 @@ async function importSettings(text) {
 
 async function exportSettings() {
     const obj = [];
-    for (const [name, value] of new FormData(form).entries()) {
-        obj.push({Item1: name, Item2: value});
+    for (const [name, opt] of Object.entries(OPTIONS)) {
+        obj.push({Item1: name, Item2: opt.type === "boolean" ? form[name].checked : +form[name].value});
     }
     const bytes = await new Response(
         new Blob([JSON.stringify(obj)]).stream().pipeThrough(new CompressionStream("gzip"))
