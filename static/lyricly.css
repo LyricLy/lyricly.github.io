@@ -256,7 +256,6 @@ button, input[type=button], input[type=reset], input[type=submit], input[type=fi
 }
 
 textarea, select, input {
-    height: 2.2rem;
     font-size: 85%;
     background: var(--bg);
     border: 0.8px solid var(--weak-fg);
@@ -302,6 +301,7 @@ select[multiple], textarea {
 
 select, input, button {
     border-radius: calc(infinity*1px);
+    height: 2.2rem;
 }
 
 input[type=checkbox]:focus {
