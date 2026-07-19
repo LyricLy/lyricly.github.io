@@ -213,6 +213,7 @@ const OPTIONS = {
         name: "Ambient temperature offset",
         desc: "How much warmer/colder should the environment be on average",
         type: "real",
+        min: -1000,
     },
     oreamount: {
         name: "Ore amount",
@@ -288,14 +289,14 @@ for (const [id, option] of Object.entries(OPTIONS)) {
         input = document.createElement("input");
         input.setAttribute("type", "number");
         input.setAttribute("step", "0.01");
-        input.setAttribute("min", "0");
-        input.setAttribute("max", "1000");
+        input.setAttribute("min", option.min ?? "0");
+        input.setAttribute("max", option.max ?? "1000");
         label.after(input);
     } else if (option.type === "integer") {
         input = document.createElement("input");
         input.setAttribute("type", "number");
-        input.setAttribute("min", "0");
-        input.setAttribute("max", "1000");
+        input.setAttribute("min", option.min ?? "0");
+        input.setAttribute("max", option.max ?? "1000");
         label.after(input);
     } else if (option.type === "choice") {
         input = document.createElement("select");
